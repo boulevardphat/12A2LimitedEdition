@@ -258,10 +258,13 @@ textarea {
     line-height: 1.5;
 }
 
+/* SỬA LỖI KHUNG INPUT VÀ BUTTON TRÊN CẢ ĐIỆN THOẠI LẪN MÁY TÍNH */
 #step-password input {
-    width: min(100%, 280px);
+    width: 100%;
+    max-width: 260px; /* Giới hạn độ rộng vừa phải để luôn có lề an toàn */
     padding: 12px 14px;
-    margin: 16px 0 14px;
+    margin: 16px auto 14px auto; /* auto 2 bên để căn thẳng đứng hoàn hảo */
+    display: block; /* Ép về hiển thị dạng khối (block) để margin auto hoạt động */
     border: 2px solid #dfe4ea;
     border-radius: 10px;
     font-size: 16px;
@@ -276,12 +279,16 @@ textarea {
 }
 
 #step-password button {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto; /* auto 2 bên tương tự khung nhập liệu */
+    display: block; 
     font-family: 'Paytone One', sans-serif;
     font-weight: normal;
     background: #3742fa;
     color: white;
     border: none;
-    padding: 12px 32px;
+    padding: 12px 0; /* Loại bỏ padding 2 bên, độ rộng được quyết định bởi width & max-width */
     border-radius: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -572,6 +579,7 @@ textarea {
     transform: translate(-50%, -50%);
     transform-style: preserve-3d;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    border-radius: 12px; /* Thêm bo góc cho wrapper envelope */
 }
 
 .envelope.fade-out {
@@ -589,6 +597,8 @@ textarea {
     background-image: url('image/envelope/env_front.png');
     background-size: 100% 100%;
     z-index: 2;
+    border-radius: 12px; /* THÊM BO GÓC MẶT TRƯỚC BAO THƯ */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25); /* Thêm đổ bóng cho bao thư chân thật hơn */
 }
 
 .custom-paper-bg {
@@ -657,6 +667,12 @@ textarea {
 
     #step-password {
         padding: 24px 18px;
+    }
+
+    /* Đảm bảo khung input/button luôn đẹp trên màn hình mobile nhỏ gọn nhất */
+    #step-password input,
+    #step-password button {
+        max-width: 240px; 
     }
 
     #step-content {
@@ -741,11 +757,6 @@ textarea {
 
     #step-password p {
         font-size: 0.94rem;
-    }
-
-    #step-password button {
-        width: 100%;
-        max-width: 220px;
     }
 
     .info-name {
