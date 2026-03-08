@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/cover/sakura.ico">
+    <title>A2 8/3</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Paytone+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="sakura-container"></div>
+
+    <div id="playground"></div>
+    
+    <div id="bottom-bar">
+        <div class="bottom-title">Em Xinh Say 2</div>
+        <div class="bottom-subtitle">Hãy tìm kiếm ảnh của mình để khám phá</div>
+    </div>
+    
+    <div id="modal-overlay" onclick="closeModal()"></div>
+
+    <div id="dynamic-modal">
+        <div id="step-password">
+            <h2>Bức ảnh bí mật</h2>
+            <p>Nhập mật khẩu để mở hộp quà</p>
+            <input type="password" id="pwd-input" placeholder="Mật khẩu...">
+            <br>
+            <button onclick="checkPassword()">Mở Khóa</button>
+            <div id="error-msg">Mật khẩu không chính xác!</div>
+        </div>
+
+        <div id="envelope-wrapper">
+            <div class="envelope" id="envelope-3d">
+                <div class="env-front"></div>
+                <div class="env-back"></div>
+            </div>
+        </div>
+
+        <div id="step-content">
+            <div class="left-col">
+                <img id="display-avatar" class="avatar-stamp" src="" alt="Avatar">
+                <div id="display-name" class="info-name"></div>
+                <div id="display-dob" class="info-dob"></div>
+                
+                <div class="music-player" id="music-player-container">
+                    <div class="music-info">
+                        <img id="music-cover" class="cover-square" src="" alt="Cover">
+                        <div class="song-text">
+                            <div id="song-title">Tên bài hát</div>
+                            <div id="artist-name">Tên ca sĩ</div>
+                        </div>
+                    </div>
+                    <div class="music-controls">
+                        <button class="play-btn" id="play-btn" onclick="togglePlay()">
+                            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>
+                        </button>
+                        <div class="progress-area">
+                            <input type="range" id="progress-bar" class="progress-bar" value="0" step="1">
+                            <div class="time-labels">
+                                <span id="curr-time">0:00</span>
+                                <span id="total-time">0:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <audio id="audio-player" src=""></audio>
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div id="display-text" class="scrollable-text"></div>
+                
+                <div class="bottom-actions">
+                    <div id="display-hashtags" class="hashtags-container"></div>
+                    
+                    <button class="icon-btn-download" onclick="downloadMainImage()" title="Tải ảnh bìa ngoài">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
